@@ -54,6 +54,10 @@ def process_notebook(sol_path: Path, out_path: Path):
             cell_copy["execution_count"] = None
             cell_copy["outputs"] = []
             new_cells.append(cell_copy)
+        elif cell_type == "markdown" and ("solution" in tags or "### BEGIN SOLUTION" in src):
+            cell_copy = dict(cell)
+            cell_copy["source"] = ["*Write your answer here in markdown...*\n"]
+            new_cells.append(cell_copy)
         elif cell_type == "code":
             cell_copy = dict(cell)
             cell_copy["execution_count"] = None

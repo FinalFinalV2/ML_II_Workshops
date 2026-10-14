@@ -135,7 +135,7 @@ Check the **Actions** tab on your GitHub repository. The autograder will run and
 | # | Workshop | Topic Focus | Grade | Attempts | Status | Last Run |
 |:---:|:---|:---|:---:|:---:|:---:|:---:|
 | **00** | [`workshop_00_revising`](workshop_00_revising/) | Foundations: Synthetic Panel, PCA/UMAP, Pipelines | — | 0 | ⚪ Pending | — |
-| **01** | `workshop_01_ts_graphics` | Time Series Graphics: APIs, Datetime Indexing, ACF | — | 0 | ⚪ Pending | — |
+| **01** | [`workshop_01_ts_graphics`](workshop_01_ts_graphics/) | Time Series Graphics: APIs, Datetime Indexing, ACF | — | 0 | ⚪ Pending | — |
 | **02** | `workshop_02_decomposition` | Transformations, Classical & STL Decomposition | — | 0 | ⚪ Pending | — |
 | **03** | `workshop_03_benchmarks` | Benchmarks, Diagnostics & Prediction Intervals | — | 0 | ⚪ Pending | — |
 | **04** | `workshop_04_evaluation` | Forecast Accuracy Metrics & Walk-Forward CV | — | 0 | ⚪ Pending | — |
