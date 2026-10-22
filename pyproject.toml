@@ -11,7 +11,7 @@ authors = [
 ]
 readme = "README.md"
 requires-python = ">=3.10"
-license = {text = "MIT"}
+license = "MIT"
 dependencies = [
     "numpy>=1.26.0",
     "scipy>=1.11.0",
@@ -36,6 +36,10 @@ test = [
 ]
 
 [tool.pytest.ini_options]
-testpaths = ["workshop_00_revising/tests", "workshop_01_ts_graphics/tests"]
+testpaths = ["workshop_00_revising/tests", "workshop_01_ts_graphics/tests", "workshop_02_decomposition/tests"]
 python_files = ["test_*.py"]
 addopts = "-v --tb=short"
+
+
+[tool.setuptools]
+packages = []

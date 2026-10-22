@@ -108,8 +108,8 @@ Check the **Actions** tab on your GitHub repository. The autograder will run and
 | # | Workshop Folder | Focus & Prerequisite Alignment | Deliverables |
 |:---:|:---|:---|:---:|
 | **00** | [`workshop_00_revising`](workshop_00_revising/) | **Foundations Bridge**: Synthetic panel data, Pandas refresher, PCA / t-SNE / UMAP, Scikit-Learn Pipelines & GroupKFold | Notebook & Tests |
-| **01** | `workshop_01_ts_graphics` | **Lesson 01**: FRED/ECB APIs, datetime indexing, seasonal & lag plots, autocorrelation (ACF) | Notebook & Tests |
-| **02** | `workshop_02_decomposition` | **Lesson 02**: Box-Cox, classical & STL decomposition, time series features, leak-free imputation | Notebook & Tests |
+| **01** | [`workshop_01_ts_graphics`](workshop_01_ts_graphics/) | **Lesson 01**: FRED/ECB APIs, datetime indexing, seasonal & lag plots, autocorrelation (ACF) | Notebook & Tests |
+| **02** | [`workshop_02_decomposition`](workshop_02_decomposition/) | **Lesson 02**: Box-Cox, classical & STL decomposition, time series features, leak-free imputation | Notebook & Tests |
 | **03** | `workshop_03_benchmarks` | **Lesson 03**: Naive, seasonal naive, drift benchmarks, residual diagnostics, prediction intervals | Notebook & Tests |
 | **04** | `workshop_04_evaluation` | **Lesson 04**: MAE, RMSE, MAPE, MASE, walk-forward CV, Diebold–Mariano test | Notebook & Tests |
 | **05** | `workshop_05_regression` | **Lesson 05**: Time series regression, trend/seasonality regressors, spurious regression | Notebook & Tests |
@@ -135,8 +135,8 @@ Check the **Actions** tab on your GitHub repository. The autograder will run and
 | # | Workshop | Topic Focus | Grade | Attempts | Status | Last Run |
 |:---:|:---|:---|:---:|:---:|:---:|:---:|
 | **00** | [`workshop_00_revising`](workshop_00_revising/) | Foundations: Synthetic Panel, PCA/UMAP, Pipelines | — | 0 | ⚪ Pending | — |
-| **01** | `workshop_01_ts_graphics` | Time Series Graphics: APIs, Datetime Indexing, ACF | — | 0 | ⚪ Pending | — |
-| **02** | `workshop_02_decomposition` | Transformations, Classical & STL Decomposition | — | 0 | ⚪ Pending | — |
+| **01** | [`workshop_01_ts_graphics`](workshop_01_ts_graphics/) | Time Series Graphics: APIs, Datetime Indexing, ACF | — | 0 | ⚪ Pending | — |
+| **02** | [`workshop_02_decomposition`](workshop_02_decomposition/) | Transformations, Classical & STL Decomposition | — | 0 | ⚪ Pending | — |
 | **03** | `workshop_03_benchmarks` | Benchmarks, Diagnostics & Prediction Intervals | — | 0 | ⚪ Pending | — |
 | **04** | `workshop_04_evaluation` | Forecast Accuracy Metrics & Walk-Forward CV | — | 0 | ⚪ Pending | — |
 | **05** | `workshop_05_regression` | Time Series Regression & Spurious Correlation | — | 0 | ⚪ Pending | — |
@@ -160,6 +160,9 @@ Check the **Actions** tab on your GitHub repository. The autograder will run and
 - `make scaffold`: Strips instructor solutions into blank student walkthrough notebooks.
 - `make test`: Runs all workshop test suites across the repository.
 - `make test-00`: Runs unit tests for Workshop 00.
+- `make test-01`: Runs unit tests for Workshop 01.
+- `make test-02`: Runs unit tests for Workshop 02.
+- `make test-solution-02`: Runs unit tests for Workshop 02 instructor solution.
 - `make clean`: Cleans up temporary caches (`.pytest_cache`, `__pycache__`, `.ipynb_checkpoints`).
 
 ---
