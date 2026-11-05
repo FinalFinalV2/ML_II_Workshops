@@ -19,11 +19,18 @@ All workshop assignments are delivered and graded through GitHub Classroom using
   python -m ipykernel install --user --name ml2_workshops --display-name "Python (ML II)"
   ```
 
-- **Option B: Standard virtualenv + pip**:
+- **Option B: Standard virtualenv + pip (Modular & Fast)**:
   ```bash
   python3 -m venv .venv
   source .venv/bin/activate       # Windows: .venv\Scripts\activate
-  pip install -e ".[test]"
+
+  # 1. Base core + autograder (always included, zero bloat):
+  pip install -e .
+
+  # 2. Add dependencies for your current workshop:
+  pip install -e ".[classical]"   # For W01–W08 (statsmodels)
+  # Or use workshop aliases:
+  pip install -e ".[w01]"          # Or .[w00], .[w02], .[w10], etc.
   ```
 
 - **Launch Jupyter Lab**:
@@ -123,6 +130,7 @@ Check the **Actions** tab on your GitHub repository. The autograder will run and
 | **13** | `workshop_13_multivariate` | **Lesson 13**: Vector Autoregressions (VAR), Granger causality, Impulse Response Functions (IRF) | Notebook & Tests |
 | **14** | `workshop_14_practical` | **Lesson 14**: End-to-end production pipelines, automated backtesting, monitoring & drift | Notebook & Tests |
 | **15** | `workshop_15_final_project` | **Lesson 15**: Capstone forecasting tournament & comprehensive modeling report | Project Submission |
+| **99** | [`workshop_99_timestral`](workshop_99_timestral/) | **Advanced Sandbox**: Time Series Foundation Models (TSFMs) with Mistral Timestral | Playground Notebook & Benchmark |
 
 ---
 
@@ -137,9 +145,9 @@ Check the **Actions** tab on your GitHub repository. The autograder will run and
 | **00** | [`workshop_00_revising`](workshop_00_revising/) | Foundations: Synthetic Panel, PCA/UMAP, Pipelines | — | 0 | ⚪ Pending | — |
 | **01** | [`workshop_01_ts_graphics`](workshop_01_ts_graphics/) | Time Series Graphics: APIs, Datetime Indexing, ACF | — | 0 | ⚪ Pending | — |
 | **02** | [`workshop_02_decomposition`](workshop_02_decomposition/) | Transformations, Classical & STL Decomposition | — | 0 | ⚪ Pending | — |
-| **03** | `workshop_03_benchmarks` | Benchmarks, Diagnostics & Prediction Intervals | — | 0 | ⚪ Pending | — |
-| **04** | `workshop_04_evaluation` | Forecast Accuracy Metrics & Walk-Forward CV | — | 0 | ⚪ Pending | — |
-| **05** | `workshop_05_regression` | Time Series Regression & Spurious Correlation | — | 0 | ⚪ Pending | — |
+| **03** | [`workshop_03_benchmarks`](workshop_03_benchmarks/) | Benchmarks, Diagnostics & Prediction Intervals | — | 0 | ⚪ Pending | — |
+| **04** | [`workshop_04_evaluation`](workshop_04_evaluation/) | Forecast Accuracy Metrics & Walk-Forward CV | — | 0 | ⚪ Pending | — |
+| **05** | [`workshop_05_regression`](workshop_05_regression/) | Time Series Regression & Spurious Correlation | — | 0 | ⚪ Pending | — |
 | **06** | `workshop_06_ets` | Exponential Smoothing & ETS Model Selection | — | 0 | ⚪ Pending | — |
 | **07** | `workshop_07_arima` | Stationarity, Differencing & ARIMA Identification | — | 0 | ⚪ Pending | — |
 | **08** | `workshop_08_advanced_arima` | Seasonal ARIMA, SARIMAX & Fourier Terms | — | 0 | ⚪ Pending | — |
@@ -155,15 +163,25 @@ Check the **Actions** tab on your GitHub repository. The autograder will run and
 
 ---
 
-## Instructor Commands (`Makefile`)
+## Helpful Commands (`Makefile`)
 
-- `make scaffold`: Strips instructor solutions into blank student walkthrough notebooks.
-- `make test`: Runs all workshop test suites across the repository.
-- `make test-00`: Runs unit tests for Workshop 00.
-- `make test-01`: Runs unit tests for Workshop 01.
-- `make test-02`: Runs unit tests for Workshop 02.
-- `make test-solution-02`: Runs unit tests for Workshop 02 instructor solution.
-- `make clean`: Cleans up temporary caches (`.pytest_cache`, `__pycache__`, `.ipynb_checkpoints`).
+- **Installation:**
+  - `make install-core`: Installs base PyData + Autograder testing stack.
+  - `make install-classical`: Installs W01–W08 statsmodels econometric stack.
+  - `make install-tabular`: Installs W00 Scikit-Learn/XGBoost/UMAP stack.
+  - `make install-dl`: Installs W10–W11 PyTorch & Lightning sequence stack.
+  - `make install-prophet`: Installs W09 Prophet & ARCH volatility stack.
+  - `make install-timestral`: Installs W99 Mistral Timestral foundation model stack.
+  - `make install-all`: Installs complete bundle (for CI & instructor).
+- **Autograding & Tests:**
+  - `make test`: Runs all unit tests via pytest across all workshops.
+  - `make test-00`: Runs Workshop 00 tests.
+  - `make test-01`: Runs Workshop 01 tests.
+  - `make test-02`: Runs Workshop 02 tests.
+  - `make test-solution-02`: Runs Workshop 02 instructor solution tests.
+- **Maintenance:**
+  - `make scaffold`: Strips instructor solutions into blank student notebooks.
+  - `make clean`: Cleans up temporary caches (`.pytest_cache`, `__pycache__`, `.ipynb_checkpoints`).
 
 ---
 

@@ -12,34 +12,105 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
+
+# -----------------------------------------------------------------------------
+# Base Core Dependencies (Always Installed)
+# Autograder and testing infrastructure are strictly required across ALL workshops.
+# -----------------------------------------------------------------------------
 dependencies = [
+    # Numerical, tabular & plotting foundation
     "numpy>=1.26.0",
     "scipy>=1.11.0",
     "pandas>=2.1.0",
-    "scikit-learn>=1.4.0",
-    "umap-learn>=0.5.5",
-    "xgboost>=2.0.0",
-    "statsmodels>=0.14.0",
-    "torch>=2.2.0",
     "matplotlib>=3.8.0",
     "seaborn>=0.13.0",
     "jupyterlab>=4.0.0",
-    "ipywidgets>=8.1.0"
-]
 
-[project.optional-dependencies]
-test = [
+    # Autograder & interactive notebook test suite (ALWAYS PRESENT)
     "pytest>=8.0.0",
     "nbformat>=5.9.0",
     "nbclient>=0.10.0",
     "ipykernel>=6.29.0"
 ]
 
+[project.optional-dependencies]
+# =============================================================================
+# Thematic Clusters
+# =============================================================================
+tabular = [
+    "scikit-learn>=1.4.0",
+    "xgboost>=2.0.0",
+    "umap-learn>=0.5.5",
+    "ipywidgets>=8.1.0"
+]
+
+classical = [
+    "statsmodels>=0.14.0"
+]
+
+prophet = [
+    "prophet>=1.1.5",
+    "arch>=6.3.0"
+]
+
+deeplearning = [
+    "torch>=2.2.0",
+    "torchvision>=0.17.0",
+    "lightning>=2.2.0"
+]
+
+hierarchical = [
+    "hierarchicalforecast>=0.4.0"
+]
+
+timestral = [
+    "torch>=2.4.0",
+    "safetensors>=0.4.0",
+    "huggingface_hub>=0.23.0",
+    "timestral @ git+https://github.com/mistralai/timestral.git"
+]
+
+# Backward compatibility alias for test
+test = []
+
+# =============================================================================
+# Workshop Number Aliases (Hybrid Mapping)
+# =============================================================================
+w00 = ["ml-ii-workshops[tabular]"]
+w01 = ["ml-ii-workshops[classical]"]
+w02 = ["ml-ii-workshops[classical]"]
+w03 = ["ml-ii-workshops[classical]"]
+w04 = ["ml-ii-workshops[classical]"]
+w05 = ["ml-ii-workshops[classical,tabular]"]
+w06 = ["ml-ii-workshops[classical]"]
+w07 = ["ml-ii-workshops[classical]"]
+w08 = ["ml-ii-workshops[classical]"]
+w09 = ["ml-ii-workshops[classical,prophet]"]
+w10 = ["ml-ii-workshops[deeplearning]"]
+w11 = ["ml-ii-workshops[deeplearning]"]
+w12 = ["ml-ii-workshops[classical,hierarchical]"]
+w13 = ["ml-ii-workshops[classical]"]
+w14 = ["ml-ii-workshops[classical,tabular]"]
+w15 = ["ml-ii-workshops[classical,tabular,deeplearning]"]
+w99 = ["ml-ii-workshops[timestral]"]
+
+# =============================================================================
+# Master Bundle (All dependencies for Instructor / CI Autograder)
+# =============================================================================
+all = [
+    "ml-ii-workshops[tabular,classical,prophet,deeplearning,hierarchical,timestral]"
+]
+
 [tool.pytest.ini_options]
-testpaths = ["workshop_00_revising/tests", "workshop_01_ts_graphics/tests", "workshop_02_decomposition/tests"]
+testpaths = [
+    "workshop_00_revising/tests",
+    "workshop_01_ts_graphics/tests",
+    "workshop_02_decomposition/tests",
+    "workshop_03_benchmarks/tests",
+    "workshop_04_evaluation/tests"
+]
 python_files = ["test_*.py"]
 addopts = "-v --tb=short"
-
 
 [tool.setuptools]
 packages = []
